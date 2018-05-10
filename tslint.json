@@ -1,6 +1,6 @@
 {
   "extends": [ "tslint:latest", "tslint-react" ],
-  "defaultSeverity": "error",
+  "defaultSeverity": "warning",
   "rules": {
     "align": [ true, "parameters", "statements" ],
     "array-type": [ true, "generic" ],
@@ -31,7 +31,7 @@
     "ordered-imports": [ false ],
     "prefer-const": true,
     "quotemark": [ true, "single", "jsx-double" ],
-    "semicolon": [ true, "always" ],
+    "semicolon": [ true, "never" ],
     "trailing-comma": [ true, { "multiline": "never", "singleline": "never" }],
     "triple-equals": [ true, "allow-null-check" ],
     "typedef-whitespace": [
