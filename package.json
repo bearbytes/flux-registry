@@ -2,7 +2,7 @@
   "name": "fluximity",
   "version": "1.0.0",
   "description": "Yet another Flux library for React, focused on minimal boilerplate and strong Typescript support",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/bearbytes/fluximity.git",
   "author": "Daniel Ebert",
   "license": "MIT",

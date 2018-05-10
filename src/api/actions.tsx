@@ -12,7 +12,9 @@ export interface ActionOptions<S, T> {
 
 export type ActionCreator<S, T> = (payload: T) => Action<S, T>
 
-export type ActionRegistry<S> = { [type: string]: ActionOptions<S, any> }
+export interface ActionRegistry<S> {
+  [type: string]: ActionOptions<S, any>
+}
 
 
 export function defineAction<S, T>(opts: ActionOptions<S, T>, registry: ActionRegistry<S>) {

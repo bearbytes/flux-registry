@@ -1,13 +1,3 @@
-import * as React from 'react';
+import {fluximity} from './src/api/fluximity'
 
-export interface HelloWorldProps extends React.Props<HelloWorld> {
-  color: string;
-}
-
-declare class HelloWorld extends React.Component<HelloWorldProps, any> {
-}
-
-declare module 'hello-world' {
-}
-
-export default HelloWorld;
+export default fluximity

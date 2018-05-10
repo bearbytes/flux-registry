@@ -24,7 +24,7 @@ export function createStore<S>(
   let currentState = opts.initialState
   const getState = () => currentState
 
-  let observers: Array<StateObserver<S>> = []
+  const observers: Array<StateObserver<S>> = []
   const subscribe = (observer: StateObserver<S>) => {
     observers.push(observer)
     observer(getState())
