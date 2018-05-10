@@ -1,20 +1,4 @@
-import {fluximity} from '../api/fluximity'
-
-interface CounterState {
-  count: number
-}
-
-const flux = fluximity<CounterState>()
-
-const increment = flux.defineAction<{ by: number }>({
-  type: 'increment',
-  reduce: (state, {by}) => ({count: state.count + by})
-})
-
-const decrement = flux.defineAction<{ by: number }>({
-  type: 'decrement',
-  reduce: (state, {by}) => ({count: state.count - by})
-})
+import {decrement, flux, increment} from './test.fixture'
 
 test('dispatching actions updates the state', () => {
   const initialState = {count: 0}

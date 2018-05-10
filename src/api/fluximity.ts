@@ -18,6 +18,6 @@ export function fluximity<S>(): FluximityApi<S> {
   return {
     defineComponent: opts => defineComponent(opts, stateContext.Consumer, dispatchContext.Consumer),
     defineAction: opts => defineAction(opts, actionRegistry),
-    createStore: opts => createStore(opts, actionRegistry)
+    createStore: opts => createStore(opts, actionRegistry, stateContext.Provider, dispatchContext.Provider)
   }
 }
