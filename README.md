@@ -2,7 +2,24 @@
 
 Yet another Flux implementation for React, focusing on minimal boilerplate and strong Typescript support.
 
-### Usage:
+### High level overview:
+
+* create Registry  
+  * declare `State` interface
+* register Actions  
+  * declare `Payload` interface
+  * declare function `reduce: (State, Payload) => State`
+* register Components  
+  * declare `OwnProps`
+  * optionally declare `SelectedProps` and function `selectProps: (State, OwnProps) => SelectedProps`
+  * declare function `render: (OwnProps & SelectedProps & Dispatch) => React.Element | null`
+* create Store  
+  * provide initial state
+* put Store Provider into the Component Tree as parent of registered Components
+* `dispatch` registered Actions from Component's `render` function to update state
+
+
+### Example usage:
 
 ```typescript
 import { createFluxRegistry } from 'flux-registry'
