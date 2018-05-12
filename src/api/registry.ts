@@ -24,7 +24,7 @@ export function createFluxRegistry<S>(): FluxRegistryApi<S> {
   const registerComponent = <P, SP>(opts: ComponentOptionsSimple<S, P> | ComponentOptionsEx<S, P, SP>) => {
     const optsEx = opts as ComponentOptionsEx<S, P, SP>
     if (optsEx.selectProps === undefined) {
-      return registerComponentSimple(opts, stateContext.Consumer, dispatchContext.Consumer)
+      return registerComponentSimple(opts, dispatchContext.Consumer)
     } else {
       return registerComponentEx(optsEx, stateContext.Consumer, dispatchContext.Consumer)
     }
