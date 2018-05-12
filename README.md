@@ -48,7 +48,7 @@ const NumberDisplay = flux.registerComponent<{
   // SelectedProps
   totalValue: number
 }>({
-  // must provide a selectProps function in this case: (State, OwnProps) => SelectProps
+  // must provide a selectProps function in this case: (State, OwnProps) => SelectedProps
   selectProps: ({myNumber}, {multiplicationFactor}) => ({totalValue: myNumber * multiplicationFactor}),
 
   // OwnProps and SelectedProps are merged into a single object for the render function
