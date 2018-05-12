@@ -1,1 +1,1 @@
-import { createFluxRegistry } from './api/registry'
+export { createFluxRegistry } from './api/registry'
