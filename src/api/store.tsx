@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { ReactNode } from 'react'
 import { Action, ActionRegistry, Dispatch } from './actions'
 
 export interface Store<S> {
@@ -46,7 +45,7 @@ export function createStore<S>(
     setState(state)
   }
 
-  const Provider: React.ComponentType = (props: {children?: ReactNode}) => (
+  const Provider: React.ComponentType = (props: {children?: React.ReactNode}) => (
     <DispatchProvider value={ dispatch }>
       <StateHolder { ...{getState, subscribe, StateProvider} }>
         { props.children }

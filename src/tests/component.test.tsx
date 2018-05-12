@@ -4,14 +4,13 @@ import {CounterComponent, flux, increment} from './test.fixture'
 
 test('basic test', () => {
   const initialState = {count: 42}
-  const store = flux.createStore({initialState})
+  const {Provider} = flux.createStore({initialState})
 
-  const StateProvider = store.provider
   const MyComponent = () => {
     return (
-      <StateProvider>
+      <Provider>
         <CounterComponent offsetBy={100}/>
-      </StateProvider>
+      </Provider>
     )
   }
 
@@ -22,13 +21,13 @@ test('basic test', () => {
 test('component updates on state change', () => {
   const initialState = {count: 42}
   const store = flux.createStore({initialState})
+  const {Provider} = store
 
-  const StateProvider = store.provider
   const MyComponent = () => {
     return (
-      <StateProvider>
+      <Provider>
         <CounterComponent offsetBy={100}/>
-      </StateProvider>
+      </Provider>
     )
   }
 
