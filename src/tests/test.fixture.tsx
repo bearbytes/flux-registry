@@ -1,27 +1,27 @@
 import * as React from 'react'
-import {fluximity} from '../api/fluximity'
+import { createFluxRegistry } from '../api/registry'
 
 interface CounterState {
   count: number
 }
 
-export const flux = fluximity<CounterState>()
+export const flux = createFluxRegistry<CounterState>()
 
-export const increment = flux.defineAction<{ by: number }>({
+export const increment = flux.registerAction<{ by: number }>({
   type: 'increment',
-  reduce: (state, {by}) => ({count: state.count + by})
+  reduce: (state, { by }) => ({ count: state.count + by })
 })
 
-export const decrement = flux.defineAction<{ by: number }>({
+export const decrement = flux.registerAction<{ by: number }>({
   type: 'decrement',
-  reduce: (state, {by}) => ({count: state.count - by})
+  reduce: (state, { by }) => ({ count: state.count - by })
 })
 
-export const CounterComponent = flux.defineComponent<{
+export const CounterComponent = flux.registerComponent<{
   offsetBy: number
 }, {
   combinedCount: number
 }>({
-  selectProps: (state, props) => ({combinedCount: state.count + props.offsetBy}),
-  render: ({combinedCount}) => (<p>{combinedCount}</p>)
+  selectProps: (state, props) => ({ combinedCount: state.count + props.offsetBy }),
+  render: ({ combinedCount }) => (<p>{combinedCount}</p>)
 })

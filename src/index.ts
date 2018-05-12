@@ -1,1 +1,1 @@
-export {fluximity as default} from './api/fluximity'
+import { createFluxRegistry } from './api/registry'
