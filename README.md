@@ -52,9 +52,10 @@ const NumberDisplay = flux.registerComponent<{
   selectProps: ({myNumber}, {multiplicationFactor}) => ({totalValue: myNumber * multiplicationFactor}),
 
   // OwnProps and SelectedProps are merged into a single object for the render function
-  render: ({totalValue, multiplicationFactor}) => (
-    <p>{ `${totalValue} (multiplied by ${multiplicationFactor})` }</p>
-  )
+  render: ({totalValue, multiplicationFactor}) => {
+    const text = `${totalValue} (multiplied by ${multiplicationFactor})`
+    return <p>{ text }</p>
+  }
 })
 
 // create a store that holds a single instance of the global state
