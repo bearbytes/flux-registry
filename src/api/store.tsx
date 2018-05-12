@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {ReactNode} from 'react'
-import {Action, ActionRegistry, Dispatch} from './actions'
+import { ReactNode } from 'react'
+import { Action, ActionRegistry, Dispatch } from './actions'
 
 export interface Store<S> {
   getState: () => S
   subscribe: (observer: StateObserver<S>) => void // todo: return unsubscribe
   dispatch: (action: Action<S, any>) => void
-  provider: React.ComponentType
+  Provider: React.ComponentType
 }
 
 export interface StoreOptions<S> {
@@ -36,7 +36,7 @@ export function createStore<S>(
   }
 
   const dispatch = (action: Action<S, any>) => {
-    const options = actionRegistry[action.type]
+    const options = actionRegistry[ action.type ]
     if (options === undefined) {
       throw Error(`The dispatched action of type ${action.type} is not registered.`)
     }
@@ -46,10 +46,10 @@ export function createStore<S>(
     setState(state)
   }
 
-  const provider: React.ComponentType = (props: { children?: ReactNode }) => (
-    <DispatchProvider value={dispatch}>
-      <StateHolder getState={getState} subscribe={subscribe} StateProvider={StateProvider}>
-        {props.children}
+  const Provider: React.ComponentType = (props: {children?: ReactNode}) => (
+    <DispatchProvider value={ dispatch }>
+      <StateHolder { ...{getState, subscribe, StateProvider} }>
+        { props.children }
       </StateHolder>
     </DispatchProvider>
   )
@@ -58,7 +58,7 @@ export function createStore<S>(
     getState,
     dispatch,
     subscribe,
-    provider
+    Provider
   }
 }
 
@@ -80,8 +80,8 @@ class StateHolder<S> extends React.Component<StateHolderProps<S>, S> {
 
   render() {
     return (
-      <this.props.StateProvider value={this.state}>
-        {this.props.children}
+      <this.props.StateProvider value={ this.state }>
+        { this.props.children }
       </this.props.StateProvider>
     )
   }

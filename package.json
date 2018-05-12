@@ -1,7 +1,7 @@
 {
   "name": "fluximity",
   "version": "1.0.0",
-  "description": "Yet another Flux library for React, focused on minimal boilerplate and strong Typescript support",
+  "description": "Yet another Flux implementation for React, focusing on minimal boilerplate and strong Typescript support",
   "main": "lib/index.js",
   "repository": "https://github.com/bearbytes/fluximity.git",
   "author": "Daniel Ebert",
@@ -13,21 +13,22 @@
     "prepare": "yarn test && yarn lint && yarn build"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "22.2.3",
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
+    "@types/recompose": "^0.26.1",
     "enzyme": "3.3.0",
-    "@types/enzyme": "^3.1.10",
     "enzyme-adapter-react-16": "1.1.1",
-    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "immutable": "^4.0.0-rc.9",
     "jest": "^22.4.3",
-    "ts-jest": "^22.4.5",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "ts-jest": "^22.4.5",
     "tslint": "^5.10.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^2.8.3",
-    "@types/recompose": "^0.26.1"
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "recompose": "^0.27.0"
